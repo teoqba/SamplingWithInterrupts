@@ -1,5 +1,5 @@
 // Interrupt driven ADC.
-// Perorms ADC conversion, while the result from previous one 
+// Performs ADC conversion, while the result from previous one 
 // is being send over Serial. 
 // In such a way the bottleneck for sampling frequency is 
 // the speed of data transfer. 
@@ -20,8 +20,8 @@ void setup(){
 //Interrupt routine
 ISR (ADC_vect){
     //read ADCL first! 
-    byte valADCL = ADCL;
-    byte valADCH= ADCH;
+  byte valADCL = ADCL;
+  byte valADCH= ADCH;
   sensorData = (valADCH << 8) | valADCL;
   adcCompleted = true; 
 }
