@@ -13,9 +13,7 @@
 // Kuba Kaminski, 2014
 
 volatile int sensorData;
-volatile boolean adcCompleted = true;
 volatile boolean sensorDataReady;
-volatile boolean sampleTime = true;
 
 void setup(){
   byte analogPin = 0;  
@@ -42,22 +40,15 @@ ISR (ADC_vect){
   byte valADCL = ADCL;
   byte valADCH= ADCH;
   sensorData = (valADCH << 8) | valADCL;
-  adcCompleted = true; 
 }
 
 //Timer2 interrupt routine
 ISR (TIMER2_COMP_vect){
-  sampleTime = true;
+  ADCSRA |= bit(ADSC) | bit(ADIE);
+  sensorDataReady = true;
 }
 
 void loop(){
-   if (adcCompleted && sampleTime) {
-     //previous ADC cycle is completed, initialize new mesurment
-     ADCSRA |= bit(ADSC) | bit(ADIE);
-     adcCompleted = false;
-     sensorDataReady = true;
-     sampleTime = false;
-   }
    
    if (sensorDataReady){
      Serial.println(sensorData);

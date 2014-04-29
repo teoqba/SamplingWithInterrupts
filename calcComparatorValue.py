@@ -2,6 +2,8 @@
 
 # Calculate 16MHz ATMega 328P Timer comparator value for desired sampling 
 # frequency and chosen clock prescaler
+#
+# Kuba Kaminski, 2014
 
 import sys
 
