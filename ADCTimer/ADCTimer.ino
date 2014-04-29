@@ -30,7 +30,6 @@ void setup(){
   OCR2A = 249; //set the comparator //x = (fclock/(fsampling*prescaler)) - 1 
   TCCR2A |= bit(WGM21); //enable CTC mode
   TIMSK2 |= bit(OCIE2A); //enable compare interrupt on clock 2
-  
   sei(); //allow interrupts
 }
 
@@ -38,7 +37,7 @@ void setup(){
 ISR (ADC_vect){
   //remember to read ADCL register first! 
   byte valADCL = ADCL;
-  byte valADCH= ADCH;
+  byte valADCH = ADCH;
   sensorData = (valADCH << 8) | valADCL;
 }
 
