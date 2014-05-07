@@ -14,14 +14,14 @@ void setup(){
   byte analogPin = 0;  
   Serial.begin(115200);
   //set up ADC to internal 5V reference and selected pin
-  ADMUX = bit(REFS0) | (analogPin & 0x07); // equivalent to 10000000   
+  ADMUX = bit(REFS0) | (analogPin & 0x07); // equivalent to b10000000   
 }
 
 //Interrupt routine
 ISR (ADC_vect){
-    //read ADCL first! 
+  //read ADCL first! 
   byte valADCL = ADCL;
-  byte valADCH= ADCH;
+  byte valADCH = ADCH;
   sensorData = (valADCH << 8) | valADCL;
   adcCompleted = true; 
 }
