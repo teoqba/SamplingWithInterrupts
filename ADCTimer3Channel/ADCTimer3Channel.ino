@@ -7,7 +7,7 @@
 // ADC conversion is triggerd by Timer1 interrupt
 // The Time1 interrupt frequency (the overall sampling frequency)
 // cannot be higher than the speed of Serial.print transmission,
-// as we will lose data.
+// as we will loose data.
 //
 // Performs 3 ADC conversions in sequence. Each conversion is triggered by
 // interrupt.
