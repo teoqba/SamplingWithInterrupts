@@ -12,6 +12,9 @@
 //
 // Performs 3 ADC conversions in sequence. Each conversion is triggered by
 // interrupt.
+// Using two buffers to store ADC Conversion data. They are swapped on each 
+// mesurment cycle. During n cycle, data n-1 cycle is being send from one of 
+// the buffers. On the first cycle no data is send. 
 //
 // Kuba Kaminski, 2014
 
