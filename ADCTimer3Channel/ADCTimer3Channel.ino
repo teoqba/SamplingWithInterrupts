@@ -10,7 +10,7 @@
 // cannot be higher than the speed of Serial.print transmission,
 // as we will lose data.
 //
-// Performs 3 ADC conversions in sequence. Each converstion is triggered by
+// Performs 3 ADC conversions in sequence. Each conversion is triggered by
 // interrupt.
 //
 // Kuba Kaminski, 2014
@@ -43,8 +43,7 @@ void setup(){
   TCCR1B = 0;// same for TCCR1B
   TCNT1  = 0;//initialize counter value to 0
   // set compare match register for 1hz increments
-  //OCR1A = 15624;// = (16*10^6) / (1*1024) - 1 (must be <65536)
-  OCR1A = 14;// = (16*10^6) / (1*1024) - 1 (must be <65536)
+  OCR1A = 15624;// = (16*10^6) / (1*1024) - 1 (must be <65536)
   // turn on CTC mode
   TCCR1B |= bit(WGM12);
   // Set CS10 and CS12 bits for 1024 prescaler
