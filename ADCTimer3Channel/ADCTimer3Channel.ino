@@ -3,8 +3,7 @@
 // is being send over Serial. 
 // In such a way the bottleneck for sampling frequency is 
 // the speed of data transfer. 
-// Code based on http://www.gammon.com.au/forum/?id=11488
-//
+
 // ADC conversion is triggerd by Timer1 interrupt
 // The Time1 interrupt frequency (the overall sampling frequency)
 // cannot be higher than the speed of Serial.print transmission,
