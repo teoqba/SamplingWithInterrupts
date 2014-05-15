@@ -4,11 +4,13 @@
 // In such a way the bottleneck for sampling frequency is 
 // the speed of data transfer. 
 
-// ADC conversion is triggerd by Timer1 interrupt
-// The Time1 interrupt frequency (the overall sampling frequency)
-// cannot be higher than the speed of Serial.print transmission,
-// as we will loose data.
-//
+// ADC conversion is triggerd by Timer interrupt
+// The Timer interrupt frequency (the overall sampling frequency)
+// cannot be higher than the speed of sending data over Serial transmission,
+// as we will loose data. Serial data is send avoiding Serial.print command, 
+// to reduce number of bytes send down to 6. The data is send as ASCII 
+// characters, and should be decoded by reciever. 
+
 // Performs 3 ADC conversions in sequence. Each conversion is triggered by
 // interrupt.
 // Using two buffers to store ADC Conversion data. They are swapped on each 
